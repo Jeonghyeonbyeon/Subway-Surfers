@@ -1,0 +1,92 @@
+#ifndef CURVEDWORLD_#BEND_TYPE_BIG#_ID#ID#_CGINC
+#define CURVEDWORLD_#BEND_TYPE_BIG#_ID#ID#_CGINC
+
+uniform float3 CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_PivotPoint;
+uniform float3 CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_RotationCenter;
+uniform float CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendAngle;
+uniform float CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendMinimumRadius;
+uniform float CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendRolloff;
+
+                 
+#include "../../Core/Core.cginc"                           
+             
+      
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                Main Method                                 //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+void CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(inout float4 vertexOS)
+{
+    CurvedWorld_#BEND_TYPE_SMALL#(vertexOS, 
+							CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_PivotPoint,
+	                        CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_RotationCenter,                            
+							CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendAngle,
+							CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendMinimumRadius,
+							CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendRolloff);
+}
+
+void CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(inout float4 vertexOS, inout float3 normalOS, float4 tangent)
+{
+    CurvedWorld_#BEND_TYPE_SMALL#(vertexOS, 
+                            normalOS, 
+                            tangent,
+							CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_PivotPoint,
+                            CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_RotationCenter,                            
+							CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendAngle,
+							CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendMinimumRadius,
+							CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_BendRolloff);
+}
+
+void CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(inout float3 vertexOS)
+{
+    float4 vertex = float4(vertexOS, 1);
+    CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(vertex);
+
+    vertexOS.xyz = vertex.xyz;
+}
+
+void CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(inout float3 vertexOS, inout float3 normalOS, float4 tangent)
+{
+    float4 vertex = float4(vertexOS, 1);
+    CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(vertex, normalOS, tangent);
+
+    vertexOS.xyz = vertex.xyz;
+} 
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                               SubGraph Methods                             //
+//                                                                            // 
+////////////////////////////////////////////////////////////////////////////////
+void CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_float(float3 vertexOS, out float3 retVertex)
+{
+    CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(vertexOS); 	
+
+    retVertex = vertexOS.xyz;
+}
+
+void CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_half(half3 vertexOS, out half3 retVertex)
+{
+    CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(vertexOS); 	
+
+    retVertex = vertexOS.xyz;
+}
+
+void CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_float(float3 vertexOS, float3 normalOS, float4 tangent, out float3 retVertex, out float3 retNormal)
+{
+	CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(vertexOS, normalOS, tangent); 	
+
+    retVertex = vertexOS.xyz;
+    retNormal = normalOS.xyz;
+}
+
+void CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#_half(half3 vertexOS, half3 normalOS, half4 tangent, out half3 retVertex, out float3 retNormal)
+{
+	CurvedWorld_#BEND_TYPE_SMALL#_ID#ID#(vertexOS, normalOS, tangent); 	
+
+    retVertex = vertexOS.xyz;
+    retNormal = normalOS.xyz;	
+}     
+
+#endif
