@@ -1,0 +1,15 @@
+READ ME
+-------
+Asset: Hand Painted Seamless Tiles Textures 
+Version: 1.0
+Date: 31/01/2020 
+
+- This asset is based on 2D Hand Painted Art.
+- This asset includes Albedo Textures.
+- Textures should be used with shader<<mobile<<diffuse for actual results.
+- The package includes three tiles textures:
+1. Tiles 1
+2. Tiles 2
+3. Tiles 3
+
+Copyright 2020, Innovana Techlabs Limited. All rights reserved.
