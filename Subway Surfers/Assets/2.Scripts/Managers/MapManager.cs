@@ -48,9 +48,9 @@ public class MapManager : MonoBehaviour
         int randomObstacleSpawnPos = Random.Range(0, obstacleSpawnPos.Length);
         float randomSpawnTime = Random.Range(0.5f, 1.5f);
 
-        GameObject obstacleObject = (GameObject)Instantiate(Resources.Load($"Prefabs/Obstacle {(randomObstacle <= 1 ? 0 : 1)}"), obstacleSpawnPos[randomObstacleSpawnPos].transform.position, Quaternion.identity);
+        GameObject obstacleObject = (GameObject)Instantiate(Resources.Load($"Prefabs/Obstacle {(randomObstacle < 3 ? 0 : (randomObstacle < 4 ? 1 : 2))}"), obstacleSpawnPos[randomObstacleSpawnPos].transform.position, Quaternion.identity);
 
-        if (randomObstacle <= 3)
+        if (randomObstacle < 4)
         {
             int randomObstacleObjectColor = Random.Range(0, materials.Length);
 
