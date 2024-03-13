@@ -76,7 +76,7 @@ public class MapManager : MonoBehaviour
 
         Instantiate(Resources.Load("Prefabs/Gold"), obstacleSpawnPos[randomGoldSpawnPos].transform.position, Quaternion.Euler(90f, 180f, 0f));
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
 
         isGoldSpawn = true;
     }

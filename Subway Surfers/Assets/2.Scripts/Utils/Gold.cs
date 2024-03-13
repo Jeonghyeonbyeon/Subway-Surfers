@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Gold : MonoBehaviour
 {
-    [SerializeField] private float rotateSpeed;
-    [SerializeField] private float speed;
-    [SerializeField] private float maxHeight;
+    private float rotateSpeed =100f;
+    private float speed = 0.5f;
+    private float maxHeight = 0.25f;
     private float startY;
     private bool goingUp = true;
 
