@@ -10,6 +10,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private Material[] materials;
     private float speed = 30f;
     private bool isObstacleSpawn = true;
+    private bool isGoldSpawn = true;
 
     void Update()
     {
@@ -20,6 +21,13 @@ public class MapManager : MonoBehaviour
             isObstacleSpawn = false;
 
             StartCoroutine(ObstacleSpawn());
+        }
+
+        if (isGoldSpawn)
+        {
+            isGoldSpawn = false;
+
+            StartCoroutine(GoldSpawn());
         }
     }
 
@@ -60,5 +68,16 @@ public class MapManager : MonoBehaviour
         yield return new WaitForSeconds(randomSpawnTime);
 
         isObstacleSpawn = true;
+    }
+
+    IEnumerator GoldSpawn()
+    {
+        int randomGoldSpawnPos = Random.Range(0, obstacleSpawnPos.Length);
+
+        Instantiate(Resources.Load("Prefabs/Gold"), obstacleSpawnPos[randomGoldSpawnPos].transform.position, Quaternion.Euler(90f, 180f, 0f));
+
+        yield return new WaitForSeconds(0.5f);
+
+        isGoldSpawn = true;
     }
 }
