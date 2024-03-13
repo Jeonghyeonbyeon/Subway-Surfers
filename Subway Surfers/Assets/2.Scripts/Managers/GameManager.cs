@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text squareText;
+    private int score;
+    private int square = 1;
+
     void Start()
     {
-        
+        scoreText.text = $"{score}";
+        squareText.text = $"x{square}";
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        score += Mathf.Clamp(square, 1, 20);
+
+        ScoreUpdate();
+        SquareUpdate();
     }
+
+    void ScoreUpdate() => scoreText.text = $"{score}";
+
+    void SquareUpdate() => squareText.text = $"x{square = Mathf.Clamp(square, 1, 20)}";
 }
