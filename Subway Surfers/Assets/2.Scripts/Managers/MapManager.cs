@@ -44,11 +44,11 @@ public class MapManager : MonoBehaviour
 
     IEnumerator ObstacleSpawn()
     {
-        int randomObstacle = Random.Range(0, 5);
+        int randomObstacle = Random.Range(0, 6);
         int randomObstacleSpawnPos = Random.Range(0, obstacleSpawnPos.Length);
         float randomSpawnTime = Random.Range(0.5f, 1.5f);
 
-        GameObject obstacleObject = (GameObject)Instantiate(Resources.Load($"Prefabs/Obstacle {(randomObstacle < 3 ? 0 : (randomObstacle < 4 ? 1 : 2))}"), obstacleSpawnPos[randomObstacleSpawnPos].transform.position, Quaternion.identity);
+        GameObject obstacleObject = (GameObject)Instantiate(Resources.Load($"Prefabs/Obstacle {(randomObstacle < 3 ? 0 : (randomObstacle < 4 ? 1 : (randomObstacle < 5 ? 2 : 3)))}"), obstacleSpawnPos[randomObstacleSpawnPos].transform.position, Quaternion.identity);
 
         if (randomObstacle < 4)
         {
