@@ -11,6 +11,7 @@ public class MapManager : MonoBehaviour
     private float speed = 30f;
     private bool isObstacleSpawn = true;
     private bool isGoldSpawn = true;
+    private bool isRandomBoxSpawn = true;
 
     void Update()
     {
@@ -27,7 +28,7 @@ public class MapManager : MonoBehaviour
         {
             isGoldSpawn = false;
 
-            StartCoroutine(GoldSpawn());
+            StartCoroutine(UtilsSpawn());
         }
     }
 
@@ -56,7 +57,7 @@ public class MapManager : MonoBehaviour
         int randomObstacleSpawnPos = Random.Range(0, obstacleSpawnPos.Length);
         float randomSpawnTime = Random.Range(0.5f, 1.5f);
 
-        GameObject obstacleObject = (GameObject)Instantiate(Resources.Load($"Prefabs/Obstacle {(randomObstacle < 3 ? 0 : (randomObstacle < 4 ? 1 : (randomObstacle < 5 ? 2 : 3)))}"), obstacleSpawnPos[randomObstacleSpawnPos].transform.position, Quaternion.identity);
+        GameObject obstacleObject = (GameObject)Instantiate(Resources.Load($"Prefabs/Obstacle {(randomObstacle < 3 ? 0 : (randomObstacle < 4 ? 1 : (randomObstacle < 5 ? 2 : Random.Range(3, 6))))}"), obstacleSpawnPos[randomObstacleSpawnPos].transform.position, Quaternion.identity);
 
         if (randomObstacle < 4)
         {
@@ -70,14 +71,38 @@ public class MapManager : MonoBehaviour
         isObstacleSpawn = true;
     }
 
-    IEnumerator GoldSpawn()
+    IEnumerator UtilsSpawn()
     {
         int randomGoldSpawnPos = Random.Range(0, obstacleSpawnPos.Length);
 
         Instantiate(Resources.Load("Prefabs/Gold"), obstacleSpawnPos[randomGoldSpawnPos].transform.position, Quaternion.Euler(90f, 180f, 0f));
 
+        if (isRandomBoxSpawn)
+        {
+            isRandomBoxSpawn = false;
+
+            StartCoroutine(RandomBoxSpawn());
+        }
+
         yield return new WaitForSeconds(0.25f);
 
         isGoldSpawn = true;
+    }
+
+    IEnumerator RandomBoxSpawn()
+    {
+        int randomBoxPercentage = Random.Range(0, 10);
+
+        if (randomBoxPercentage >= 9)
+        {
+            Debug.Log("RandomBox");
+
+            int randomBoxSpawnPos = Random.Range(0, obstacleSpawnPos.Length);
+
+            Instantiate(Resources.Load("Prefabs/Random Box"), obstacleSpawnPos[randomBoxSpawnPos].transform.position, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(3f);
+
+        isRandomBoxSpawn = true;
     }
 }

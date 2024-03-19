@@ -1631,6 +1631,7 @@ MonoBehaviour:
   scoreText: {fileID: 162133539}
   squareText: {fileID: 573602582}
   goldText: {fileID: 1658687369}
+  gold: 0
 --- !u!1001 &432084237
 PrefabInstance:
   m_ObjectHideFlags: 0

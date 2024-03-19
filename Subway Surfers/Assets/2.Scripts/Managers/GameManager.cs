@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text squareText;
     [SerializeField] private Text goldText;
     private int score;
-    private int square = 1;
+    public int square = 1;
     public int gold = 0;
 
     private void Awake()
