@@ -15,7 +15,8 @@ public class RandomBox : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.square += 1;
+            GameManager.instance.square += 1;
+            SoundManager.instance.PlaySFX(SoundManager.instance.itemBox);
 
             Destroy(gameObject);
         }
