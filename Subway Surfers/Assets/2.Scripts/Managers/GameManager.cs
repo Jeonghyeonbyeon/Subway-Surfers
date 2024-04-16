@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     [SerializeField] private Text scoreText;
     [SerializeField] private Text squareText;
     [SerializeField] private Text goldText;
@@ -14,9 +13,14 @@ public class GameManager : MonoBehaviour
     public int square = 1;
     public int gold = 0;
 
+    private int width = 1080;
+    private int height = 1920;
+
     private void Awake()
     {
         instance = this;
+
+        Screen.SetResolution(width, height, true);
     }
 
     void Start()
