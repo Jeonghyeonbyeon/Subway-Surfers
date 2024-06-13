@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3625108941124383043}
   - component: {fileID: 8501826252848617534}
   - component: {fileID: 7665602942154199269}
+  - component: {fileID: 1645802684108482353}
   m_Layer: 6
   m_Name: Obstacle 3
   m_TagString: Untagged
@@ -76,6 +77,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.17911379, y: 1.1523647, z: 2.2228014}
   m_Center: {x: 0.074748054, y: 1.2341595, z: -0.0022383532}
+--- !u!114 &1645802684108482353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453758825038795939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f268dcea4cc4a18a47fe06a64b6610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1569573188349326544
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +183,7 @@ GameObject:
   - component: {fileID: 2890157118616768438}
   - component: {fileID: 5178255723590402854}
   - component: {fileID: 6297508859423546900}
+  - component: {fileID: 201264552394467097}
   m_Layer: 6
   m_Name: Obstacle 2
   m_TagString: Untagged
@@ -233,3 +247,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+--- !u!114 &201264552394467097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423776641109842281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f268dcea4cc4a18a47fe06a64b6610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

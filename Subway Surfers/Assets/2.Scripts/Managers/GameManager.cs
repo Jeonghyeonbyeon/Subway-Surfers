@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text scoreText;
     [SerializeField] private Text squareText;
     [SerializeField] private Text goldText;
+    public GameObject diePanel;
     private int score;
     public int square = 1;
     public int gold = 0;
