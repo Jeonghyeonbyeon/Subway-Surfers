@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    public static SoundManager instance;
+    public static AudioManager instance;
 
     [Header("-----AudioSource-----")]
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource sfxSource;
 
     [Header("-----AudioClip-----")]
-    public AudioClip inGameBGM;
-
+    public AudioClip inGame;
     public AudioClip coin;
     public AudioClip itemBox;
 
@@ -25,7 +24,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBGMLoop()
     {
-        bgmSource.clip = inGameBGM;
+        bgmSource.clip = inGame;
         bgmSource.loop = true;
         bgmSource.Play();
     }

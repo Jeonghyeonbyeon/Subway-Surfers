@@ -7,10 +7,6 @@ public class Managers : MonoBehaviour
     static Managers instance;
     static Managers Instance { get { Init(); return instance; } }
 
-    InputManager _input = new InputManager();
-
-    public static InputManager Input { get { return Instance._input; } }
-
     void Start() => Init();
 
     static void Init()

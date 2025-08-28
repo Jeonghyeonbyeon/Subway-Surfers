@@ -44,7 +44,7 @@ public class Gold : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             GameManager.instance.gold += 1;
-            SoundManager.instance.PlaySFX(SoundManager.instance.coin);
+            AudioManager.instance.PlaySFX(AudioManager.instance.coin);
 
             Destroy(gameObject);
         }
